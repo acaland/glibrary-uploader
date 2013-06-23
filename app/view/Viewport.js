@@ -18,6 +18,7 @@ Ext.define('Uploader.view.Viewport', {
                     uploaderOptions: {
                         url: './extjs-upload-widget/public/upload.php'
                     },
+                    
                     // synchronous: false,
                     region: 'center'
                 }),

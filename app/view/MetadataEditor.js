@@ -51,6 +51,11 @@ Ext.define('Uploader.view.MetadataEditor', {
     			} else if (fname == 'Size') {
     				f.value = record.size;
     				f.readOnly = true;
+    			} else if (fname == 'LastModificationDate' || fname == 'SubmissionDate') {
+    				f.xtype = 'datefield';
+    				f.value = new Date();
+    				f.format = 'd/m/Y H:m';
+    				f.submitFormat = 'Y-m-d H:m';
     			}
     			me.add(f);
     		}

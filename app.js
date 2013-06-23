@@ -17,6 +17,6 @@ Ext.application({
         console.log("loaded");
         //this.getTypesTreeStore().load();
     },
-    repository: 'deroberto2'
+    repository: 'aginfra'
 
 });

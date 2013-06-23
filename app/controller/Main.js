@@ -55,25 +55,31 @@ Ext.define('Uploader.controller.Main', {
 	},
 
 	saveMetadata: function() {
-		var selectedType = typestree.getSelectionModel().getSelection() [0];
+		var typestree = Ext.ComponentQuery.query('typestree')[0];
+		var selectedType = typestree.getSelectionModel().getSelection()[0];
 		if (!selectedType || selectedType.data.depth == 0) {
 			Ext.Msg.alert("Error","Please select a type first!");
 			return;
 		}
-		var metadata = Ext.ComponentQuery.query('metadataeditor')[0].getForm().getValues();
-		var fname = metadata.FileName.replace(/ /g, "_");
+		var form = Ext.ComponentQuery.query('metadataeditor')[0].getForm()
+		var metadata = form.getValues(false, true);
+		var fname = form.getValues().FileName.replace(/ /g, "_");
+		metadata.FileName = fname;
+		metadata.Size = form.getValues().Size;
 		metadata.Replica = "https://infn-se-03.ct.pi2s2.it/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary/" + fname;
+		console.log(metadata);
 		Ext.Ajax.request({
-			url: 'http://glibrary.ct.infn.it/django/addEntry' + selectedType.data.path + '/',
+			url: 'http://glibrary.ct.infn.it/django/saveMetadata' + selectedType.data.path + '/',
 			params: metadata,
 			success: function(response) {
-				Ext.ComponentQuery.query('metadataeditor')[0].getForm().reset();
+				Ext.ComponentQuery.query('metadataeditor')[0].removeAll();
+				Ext.Msg.alert("Success!", "Metadata added successfully");
 			},
 			failure: function(response) {
 				Ext.Msg.alert("Error","Cannot save metadata to the server. Look at the error log");
 				console.log("error");
 				console.log(response);
 			}
-		})
+		}); 
 	}
 });
