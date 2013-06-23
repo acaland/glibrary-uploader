@@ -9,12 +9,14 @@ Ext.application({
     name: 'Uploader',
     //models: ['TypesTree'],
     stores: ['TypesTree', 'FileList'],
-    controllers: ['TypesTree'],
+    controllers: ['Main', 'TypesTree'],
     requires: ['Uploader.view.Viewport'],
     //autoCreateViewport: true,
     launch: function() {
     	Ext.create('Uploader.view.Viewport');
         console.log("loaded");
         //this.getTypesTreeStore().load();
-    }
+    },
+    repository: 'deroberto2'
+
 });

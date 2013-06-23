@@ -8,6 +8,7 @@ Ext.define('Uploader.controller.TypesTree', {
              'typestree': {
                  itemclick: function(self, record, element, index, event) {
                      console.log(record.data.text);
+                     console.log(record);
                      //console.log(element);
                      console.log(index);
                      //console.log(event);

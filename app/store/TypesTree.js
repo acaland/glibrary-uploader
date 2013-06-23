@@ -1,7 +1,7 @@
 Ext.define('Uploader.store.TypesTree', {
     extend: 'Ext.data.TreeStore',
     //requires: 'Uploader.model.TypesTree',
-    //model: 'Uploader.model.TypesTree',
+    model: 'Uploader.model.TypesTree',
 
 	
 	root: {

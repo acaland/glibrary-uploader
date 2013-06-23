@@ -3,6 +3,7 @@ Ext.define('Uploader.model.TypesTree', {
    
     fields: [
       	{ name: 'id', type: 'int' },
-        { name: 'name', type: 'string' }
+        { name: 'text', type: 'string' },
+        { name: 'path', type: 'string' }
     ]
 });
