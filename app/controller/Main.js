@@ -24,7 +24,11 @@ Ext.define('Uploader.controller.Main', {
 		//console.log(record.data);
 
 		var downloadLink = Ext.ComponentQuery.query('#downloadLink')[0];
-		var link = 'http://glibrary.ct.infn.it/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary/' + record.data.filename.replace(/ /g, "_"); 
+		var vo = 'vo.indicate-project.eu';
+		var se = 'infn-se-03.ct.pi2s2.it';
+		var path = '/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary/';
+		var link = 'http://glibrary.ct.infn.it/dm/' + vo + '/' + se + '/' + path  
+			+ record.data.filename.replace(/ /g, "_"); 
 		downloadLink.update('<a href="' + link + '">' + link + '</a>');
 		downloadLink.show();
 
