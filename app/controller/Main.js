@@ -23,6 +23,11 @@ Ext.define('Uploader.controller.Main', {
 
 		//console.log(record.data);
 
+		var downloadLink = Ext.ComponentQuery.query('#downloadLink')[0];
+		var link = 'http://glibrary.ct.infn.it/dpm/ct.pi2s2.it/home/vo.indicate-project.eu/glibrary/' + record.data.filename.replace(/ /g, "_"); 
+		downloadLink.update('<a href="' + link + '">' + link + '</a>');
+		downloadLink.show();
+
 		var typestree = Ext.ComponentQuery.query('typestree')[0];
 		var selectedType = typestree.getSelectionModel().getSelection() [0];
 

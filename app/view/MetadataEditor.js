@@ -24,7 +24,15 @@ Ext.define('Uploader.view.MetadataEditor', {
     	me.dockedItems = [{
     		xtype: 'toolbar',
     		docked: 'top',
-    		items : [
+    		items : [{
+    			xtype: 'box',
+    			hidden: true,
+    			itemId: 'downloadLink',
+    			autoEl: {
+        			tag: 'a',
+        			href: 'http://www.google.it',
+        			html: 'http://www.google.it'
+    			}}, 
     			'->',
     			{text: 'Save Metadata', iconCls: 'save-icon16', action: 'save'}
     		]
